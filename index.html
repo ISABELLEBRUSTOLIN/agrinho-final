@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrinho 2025 - Conectando Campo e Cidade</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <style>
+        .cabecalho {
+            background: linear-gradient(135deg, #28a745, #20c997, #007bff);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cabecalho::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="farm" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="50" cy="50" r="20" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23farm)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .cabecalho h1,
+        .cabecalho h3 {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-section {
+            padding: 5rem 0;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+        }
+
+        .card-custom {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .card-custom:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-energia {
+            border-top: 4px solid #28a745;
+        }
+
+        .card-agua {
+            border-top: 4px solid #007bff;
+        }
+
+        .card-producao {
+            border-top: 4px solid #fd7e14;
+        }
+
+        .btn-custom-energia {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            border: none;
+            border-radius: 25px;
+            color: white;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom-agua {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            border: none;
+            border-radius: 25px;
+            color: white;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom-producao {
+            background: linear-gradient(135deg, #fd7e14, #e55100);
+            border: none;
+            border-radius: 25px;
+            color: white;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom-energia:hover,
+        .btn-custom-agua:hover,
+        .btn-custom-producao:hover {
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        .section-title {
+            position: relative;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(135deg, #28a745, #007bff, #fd7e14);
+            border-radius: 2px;
+        }
+
+        .carousel-custom {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-custom img {
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .stats-section {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 4rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer {
+            background: #343a40;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .img-agro {
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            max-width: 100%;
+            height: auto;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #28a745, #007bff);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Cabeçalho -->
+    <section class="cabecalho">
+        <h1 class="display-3 fw-bold">AGRINHO 2025</h1>
+        <h3 class="fs-2 fw-light">Festejando Conexão Campo Cidade</h3>
+        <p class="lead mt-3">Unindo tradição e inovação para um futuro sustentável</p>
+    </section>
+
+    <!-- Navegação -->
+    <nav class="navbar navbar-expand-lg bg-success sticky-top">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white fw-bold" aria-current="page" href="index.html">Página
+                            Inicial |</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="energia.html">Energia Rural |</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="agua.html">Acessibilidade à Água |</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="producao.html">Produção</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Seção Hero -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="display-5 fw-bold text-dark mb-4">O que podemos falar sobre a zona rural?</h2>
+                    <p class="lead text-muted mb-4">
+                        Fica claro que, muitas vezes, a desinformação sobre os produtos gerados no campo impede que os
+                        moradores das cidades compreendam todo o valor e o esforço envolvidos na produção rural. Essa
+                        falta de conhecimento pode gerar preconceitos, desvalorização dos alimentos e até desperdício.
+                    </p>
+                    <p class="text-muted">
+                        Promover a conexão entre o campo e a cidade, por meio de campanhas educativas e feiras de
+                        produtores, é fundamental para valorizar o trabalho do agricultor e incentivar o consumo
+                        consciente.
+                    </p>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img class="img-agro" src="assets/image/roça.jpg" alt="Imagem representativa de plantação">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estatísticas -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 stat-item">
+                    <span class="stat-number">27%</span>
+                    <h5>do PIB Nacional</h5>
+                    <p>Contribuição do agronegócio</p>
+                </div>
+                <div class="col-md-3 stat-item">
+                    <span class="stat-number">5M</span>
+                    <h5>Propriedades Rurais</h5>
+                    <p>Em todo o Brasil</p>
+                </div>
+                <div class="col-md-3 stat-item">
+                    <span class="stat-number">200M</span>
+                    <h5>Pessoas Alimentadas</h5>
+                    <p>Pelo agro brasileiro</p>
+                </div>
+                <div class="col-md-3 stat-item">
+                    <span class="stat-number">100%</span>
+                    <h5>Sustentabilidade</h5>
+                    <p>Nosso compromisso</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Áreas de Atuação -->
+    <section class="py-5">
+        <div class="container">
+            <h3 class="section-title display-5 fw-bold text-dark">Saiba um pouco mais sobre cada área</h3>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card card-custom card-agua">
+                        <img src="./assets/image/energia sus (1).png" class="card-img-top" alt="Acessibilidade à água"
+                            style="height: 200px; object-fit: cover;">
+                        <div class="card-body d-flex flex-column">
+                            <div class="feature-icon" style="background: linear-gradient(135deg, #007bff, #0056b3);">
+                                <i class="bi bi-droplet-fill"></i>
+                            </div>
+                            <h5 class="card-title fw-bold text-center">Acessibilidade à Água</h5>
+                            <p class="card-text text-muted flex-grow-1">
+                                Soluções inovadoras para garantir acesso universal à água limpa e segura nas comunidades
+                                rurais, através de tecnologias sustentáveis e eficientes.
+                            </p>
+                            <a href="agua.html" class="btn btn-custom-agua">
+                                <i class="bi bi-arrow-right me-2"></i>
+                                Saiba mais
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card card-custom card-energia">
+                        <img src="./assets/image/energia sus.png" class="card-img-top" alt="Energia rural"
+                            style="height: 200px; object-fit: cover;">
+                        <div class="card-body d-flex flex-column">
+                            <div class="feature-icon" style="background: linear-gradient(135deg, #28a745, #20c997);">
+                                <i class="bi bi-lightning-charge"></i>
+                            </div>
+                            <h5 class="card-title fw-bold text-center">Energia Rural</h5>
+                            <p class="card-text text-muted flex-grow-1">
+                                Transformando o campo com energia limpa e renovável. Soluções em energia solar, eólica e
+                                hidráulica para aumentar a produtividade rural.
+                            </p>
+                            <a href="energia.html" class="btn btn-custom-energia">
+                                <i class="bi bi-arrow-right me-2"></i>
+                                Saiba mais
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card card-custom card-producao">
+                        <img src="./assets/image/agro.png" class="card-img-top" alt="Produção e industrialização"
+                            style="height: 200px; object-fit: cover;">
+                        <div class="card-body d-flex flex-column">
+                            <div class="feature-icon" style="background: linear-gradient(135deg, #fd7e14, #e55100);">
+                                <i class="bi bi-graph-up-arrow"></i>
+                            </div>
+                            <h5 class="card-title fw-bold text-center">Produção Sustentável</h5>
+                            <p class="card-text text-muted flex-grow-1">
+                                Técnicas modernas e sustentáveis para aumentar a produtividade agrícola, preservando o
+                                meio ambiente e garantindo qualidade.
+                            </p>
+                            <a href="producao.html" class="btn btn-custom-producao">
+                                <i class="bi bi-arrow-right me-2"></i>
+                                Saiba mais
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carousel -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h3 class="section-title display-5 fw-bold text-dark">Inovação em Movimento</h3>
+            <div id="carouselExample" class="carousel slide carousel-custom">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="./assets/image/Energy (1).gif" class="d-block w-100" alt="Energia sustentável">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5 class="fw-bold">Energia Sustentável</h5>
+                            <p>Transformando o futuro da agricultura com energia limpa e renovável.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./assets/image/Energy.gif" class="d-block w-100" alt="Tecnologia rural">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5 class="fw-bold">Tecnologia Rural</h5>
+                            <p>Inovação e sustentabilidade caminhando juntas no campo.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mx-auto text-center">
+                    <h5 class="fw-bold mb-3">Agrinho 2025</h5>
+                    <p class="mb-3">Festejando a conexão campo cidade através da sustentabilidade e inovação.</p>
+                    <div class="d-flex justify-content-center gap-3 mb-3">
+                        <i class="bi bi-facebook fs-4"></i>
+                        <i class="bi bi-instagram fs-4"></i>
+                        <i class="bi bi-twitter fs-4"></i>
+                        <i class="bi bi-youtube fs-4"></i>
+                    </div>
+                    <p class="text-muted">&copy; 2025 Agrinho. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
